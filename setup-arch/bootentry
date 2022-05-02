@@ -1,0 +1,11 @@
+#!/bin/bash
+BOOT_NAME="Arch Linux"
+DISK="/dev/sda"
+DISK_PART="5"
+CRYPTDEVICE="cryptdevice=UUID=device-uuid:arch-root"
+ROOT="root=/dev/mapper/arch-root"
+LOADER="/vmlinuz-linux-zen"
+OPTS="rw initrd=\initramfs-linux-zen.img initrd=\intel-ucode.img"
+
+#Add a boot entry. Where '$DISK' and '$DISK_PART' are the drive and partition number where the ESP is located.
+efibootmgr --disk $DISK --part $DISK_PART --create --label "$BOOT_NAME" --loader "$LOADER" --unicode "$CRYPTDEVICE $ROOT $OPTS" --verbose

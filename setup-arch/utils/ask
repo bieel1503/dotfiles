@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ask() {
+	MESSAGE="$1"
+	DEFAULT="$2"
+
+  if [[ ! -z "$DEFAULT" ]]; then
+	  read -e -p "${MESSAGE}[default: $DEFAULT]: "
+  else
+	  read -e -p "${MESSAGE}"
+  fi
+
+	if [ -z "$REPLY" ] && [ ! -z "$DEFAULT" ]; then
+		REPLY="$DEFAULT"
+	fi
+}

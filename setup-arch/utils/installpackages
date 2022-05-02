@@ -1,0 +1,86 @@
+#!/bin/bash
+packages=("intel-ucode")
+packages+=("efibootmgr") #For EFISTUB
+packages+=("pavucontrol" "pamixer") #For audio control
+packages+=("firefox") #Web browser
+packages+=("mpv") #MPV as multimidia player
+packages+=("nodejs" "npm" "rust") #Programming languages
+packages+=("keepassxc") #Password manager
+packages+=("streamlink") #For watching lives
+packages+=("ttf-dejavu" "noto-fonts" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "adobe-source-code-pro-fonts") #Fonts
+packages+=("imv") #Image viewer
+packages+=("p7zip") #For handling archives
+packages+=("yt-dlp") #For downloading youtube videos and other sites
+packages+=("man-db") #Commands manual
+packages+=("lm_sensors") #Sensors command
+packages+=("dunst") #Desktop notifications
+packages+=("opendoas") #Instead of sudo
+packages+=("htop") #Process viewer
+packages+=("base-devel" "exfatprogs" "rsync" "fd" "ripgrep" "prettier" "stow" "skim")
+
+echo "Which 'networkmanager'?"
+ask "iwd, networkmanager, dhcpcd" "iwd"
+
+case "$REPLY" in 
+  "iwd")
+    packages+=("iwd")
+    ;;
+  "networkmanager")
+    packages+=("networkmanager")
+    ;;
+  "dhcpcd")
+    packages+=("dhcpcd")
+    ;;
+esac
+
+echo " "
+echo "Which DE/WM to install?"
+ask "sway, dwm, plasma, none" "sway"
+
+case "$REPLY" in
+  "sway")
+    packages+=("sway" "foot" "bemenu-wayland" "pipewire" "pipewire-pulse" "wireplumber" "qt5-wayland")
+
+    echo "Install Xwayland and other Xorg components?"
+    ask "yes/no " "yes"
+
+    if [ "$REPLY" == "yes" ]; then
+      packages+=("xwayland" "xorg-server" "xorg-setxkbmap" "xorg-xset" "xorg-xrandr" "xorg-xinit" "xorg-xrdb" "xorg-xprop" "xorg-xinput")
+    fi
+
+    ;;
+  "dwm")
+    ;;
+  "plasma")
+    ;;
+   "none")
+    ;;   
+esac
+
+pacman -S --ignore="sudo" --needed ${packages[*]}
+
+
+
+# 	packages=("intel-ucode" "wget" "git")
+# 	packages+=("efibootmgr") #For EFISTUB
+# 	packages+=("xorg-server" "xorg-setxkbmap" "xorg-xset" "xorg-xrandr" "xorg-xinit" "xorg-xrdb" "xorg-xprop" "xorg-xinput") #Xorg server and components
+# 	packages+=("alsa-utils" "pulseaudio" "pulseaudio-alsa" "pamixer") #Pulseaudio, pulse for alsa, command line mixer and a graphical mixer
+# 	packages+=("firefox") #Web browser
+# 	packages+=("numlockx") #For numlock activation on X startup
+# 	packages+=("mpv") #MPV as multimidia player
+# 	packages+=("flameshot") #Screenshooter
+# 	packages+=("nodejs" "npm" "rust") #Programming languages
+# 	packages+=("keepassxc'") #Password manager
+# 	packages+=("streamlink'") #For watching lives
+# 	packages+=("ttf-dejavu" "noto-fonts" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "adobe-source-code-pro-fonts") #Fonts
+# 	packages+=("imv") #Image viewer
+# 	packages+=("p7zip") #For handling archives
+# 	packages+=("yt-dlp") #For downloading youtube videos and other sites
+# 	packages+=("man-db") #Commands manual
+# 	packages+=("lm_sensors") #Sensors command
+# 	packages+=("dunst") #Desktop notifications
+# 	packages+=("opendoas") #Instead of sudo
+# 	packages+=("htop") #Process viewer
+# 	packages+=("base-devel")
+
+

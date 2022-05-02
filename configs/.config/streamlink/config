@@ -1,0 +1,8 @@
+player="mpv"
+player-no-close
+title={title}
+default-stream=best
+twitch-disable-hosting
+twitch-disable-ads
+twitch-disable-reruns
+twitch-low-latency

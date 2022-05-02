@@ -1,0 +1,59 @@
+#!/bin/bash
+source "./utils/ask"
+cd "$(dirname $0)"
+
+timedatectl set-ntp true
+
+echo " "
+echo "Assuming that you have a network connection and already created, formatted and mounted your partitions, update your mirrorlist and execute pacstrap into '/mnt'?"
+ask "yes/no " "yes"
+  
+if [ "$REPLY" == "yes" ]; then
+
+  MIRRORLIST=$(curl -s "https://archlinux.org/mirrorlist/?country=BR&protocol=http&protocol=https&ip_version=4&use_mirror_status=on")
+
+  if [[ $? -eq 0 ]]; then
+
+    MIRRORLIST=$(echo "$MIRRORLIST" | sed -e 's/^#Server/Server/' -e '/^#/d' -e '/^$/d')
+
+    mv "/etc/pacman.d/mirrorlist" "/etc/pacman.d/mirrorlist.old"
+    echo "$MIRRORLIST" > /etc/pacman.d/mirrorlist
+
+    pacman -Syy 2> /dev/null
+
+    if [[ $? -gt 0 ]]; then
+      echo "Couldn't refresh new mirrorlist, going back to the old one."
+      mv "/etc/pacman.d/mirrorlist.old" "/etc/pacman.d/mirrorlist"
+
+      pacman -Syy 2> /dev/null
+
+      if [[ $? -gt 0 ]]; then
+        echo "Failed again, do you really have internet? Exiting..."
+        exit
+      fi
+    fi
+
+  else
+
+    echo "Couldn't fetch updated mirrorlist. Trying with the default."
+    pacman -Syy 2> /dev/null
+
+    if [[ $? -gt 0 ]]; then
+      echo "Failed, do you really have internet? Exiting..."
+      exit
+    fi
+
+  fi
+
+  pacstrap /mnt base linux-zen linux-firmware wget git neovim 
+
+fi
+
+echo " "
+echo "Generating fstab file..."
+genfstab -L /mnt >> /mnt/etc/fstab
+
+echo "Copying files and chrooting into the new system..."
+mkdir "/mnt/dotfiles"
+cp -r "../" "/mnt/dotfiles/"
+arch-chroot /mnt "/mnt/dotfiles/setup-arch/chroot-install" 

@@ -1,0 +1,53 @@
+#!/bin/bash
+source "./utils/ask"
+cd "$(dirname $0)"
+
+echo "Set timezone. Use full path."
+ask "" "/usr/share/zoneinfo/America/Sao_Paulo" 
+ln -sfv "$REPLY" /etc/localtime
+hwclock --systohc
+
+echo "Uncomment a locale to be used."
+read -e -p "[ENTER to open nvim into /etc/locale.gen]: "
+nvim /etc/locale.gen
+locale-gen
+
+echo "Set your LANG variable. Your available locales:"
+grep '^[^#]' /etc/locale.gen
+ask "" "en_US.UTF-8"
+echo "LANG=$REPLY" > /etc/locale.conf
+
+echo "Set the console keyboard layout."
+ask "" "br-abnt2"
+echo "KEYMAP=$REPLY" > /etc/vconsole.conf
+
+echo "Set your hostname."
+ask "" "Buttscratcher"
+echo "$REPLY" > /etc/hostname
+
+#/etc/hosts
+echo "127.0.0.1 localhost" > /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 $REPLY" >> /etc/hosts
+
+echo "Set root password."
+passwd
+
+echo "Choose a name for the new user."
+ask "" "bieel1503"
+useradd -m -G wheel,disk,video "$REPLY"
+USER="$REPLY"
+HOME="/home/$REPLY"
+
+echo "Now set a password for the user."
+passwd $REPLY
+
+echo " "
+echo "Install packages?"
+ask "yes/no " "yes"
+
+if [[ "$REPLY" == "yes" ]]; then
+
+  source "./utils/installpackages"
+  
+fi
