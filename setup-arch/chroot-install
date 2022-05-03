@@ -1,6 +1,6 @@
 #!/bin/bash
-source "./utils/ask"
 cd "$(dirname $0)"
+source "./utils/ask"
 
 echo "Set timezone. Use full path."
 ask "" "/usr/share/zoneinfo/America/Sao_Paulo" 
@@ -51,3 +51,45 @@ if [[ "$REPLY" == "yes" ]]; then
   source "./utils/installpackages"
   
 fi
+
+echo " "
+echo "Set X11 mouse acceleration setting?"
+ask "yes/no " "no"
+
+if [[ "$REPLY" == "yes" ]]; then
+  FILEPATH="/etc/X11/xorg.conf.d/"
+  mkdir -p $FILEPATH
+  cp "./utils/configs/50-mouse-acceleration.conf" $FILEPATH
+fi
+
+echo "Set X11 touchpad setting?"
+ask "yes/no " "no"
+
+if [[ "$REPLY" == "yes" ]]; then
+  FILEPATH="/etc/X11/xorg.conf.d/"
+  mkdir -p $FILEPATH
+  cp "./utils/configs/30-touchpad.conf" $FILEPATH
+fi
+
+echo "Activate numlock on getty?"
+ask "yes/no " "yes"
+
+if [[ "$REPLY" == "yes" ]]; then
+  FILEPATH="/etc/systemd/system/getty@.service.d/"
+  mkdir -p $FILEPATH
+  cp "./utils/configs/activate-numlock.conf" $FILEPATH
+fi
+
+echo " "
+echo "blacklist pcspkr" > "/etc/modprobe.d/nobeep.conf"
+echo "Blacklisted annoying beep sound."
+
+cp "./utils/configs/99-sysctl.conf" > "/etc/sysctl.d/"
+echo "Added sysctl config file."
+
+echo "permit persist :wheel" > /etc/doas.conf
+echo "Created 'doas.conf' file."
+
+mv -f "./utils/configs/iptables.rules" "/etc/iptables/"
+systemctl enable iptables
+echo "Moved iptables rules file and enabled iptables service."

@@ -1,6 +1,6 @@
 # Comments and blank lines are allowed.
 
-\setup-arch
+setup-arch
 .xinitrc
 
 RCS

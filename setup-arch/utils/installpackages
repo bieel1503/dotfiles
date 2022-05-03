@@ -50,6 +50,43 @@ case "$REPLY" in
 
     ;;
   "dwm")
+    packages+=("xorg-server" "xorg-setxkbmap" "xorg-xset" "xorg-xrandr" "xorg-xinit" "xorg-xrdb" "xorg-xprop" "xorg-xinput") #Xorg server and components
+
+    echo " "
+    echo "---"
+    echo "Install dwm?"
+    ask "yes/no " "yes"
+
+    if [ "$REPLY" == "yes" ]; then
+
+      git clone -b "custom" "https://github.com/bieel1503/dwm"
+      cd "dwm/"
+      make install
+      cd ..
+      rm -rdf "dwm/"
+      echo " "
+      echo "DWM installed."
+      sleep 1
+
+      git clone -b "custom" "https://github.com/bieel1503/st"
+      cd "st/"
+      make install
+      cd ..
+      rm -rdf "st/"
+      echo " "
+      echo "ST installed."
+      sleep 1
+
+      git clone -b "custom" "https://github.com/bieel1503/dmenu"
+      cd "dmenu/"
+      make install
+      cd ..
+      rm -rdf "dmenu/"
+      echo " "
+      echo "DMENU installed."
+
+    fi
+
     ;;
   "plasma")
     ;;
