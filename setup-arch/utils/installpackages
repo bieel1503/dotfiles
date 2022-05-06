@@ -7,7 +7,7 @@ packages+=("mpv") #MPV as multimidia player
 packages+=("nodejs" "npm" "rust") #Programming languages
 packages+=("keepassxc") #Password manager
 packages+=("streamlink") #For watching lives
-packages+=("ttf-dejavu" "noto-fonts" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "adobe-source-code-pro-fonts") #Fonts
+packages+=("noto-fonts" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "ttf-nerd-fonts-symbols-mono" "gnu-free-fonts") #Fonts
 packages+=("imv") #Image viewer
 packages+=("p7zip") #For handling archives
 packages+=("yt-dlp") #For downloading youtube videos and other sites
@@ -17,6 +17,7 @@ packages+=("dunst") #Desktop notifications
 packages+=("opendoas") #Instead of sudo
 packages+=("htop") #Process viewer
 packages+=("base-devel" "exfatprogs" "rsync" "fd" "ripgrep" "prettier" "stow" "skim")
+packages+=("pacman-contrib" "cryptsetup")
 
 echo "Which 'networkmanager'?"
 ask "iwd, networkmanager, dhcpcd" "iwd"
