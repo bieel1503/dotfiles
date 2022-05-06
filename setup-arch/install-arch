@@ -48,7 +48,7 @@ if [ "$REPLY" == "yes" ]; then
   echo "Updating keyrings..." 
   pacman -S --noconfirm archlinux-keyring
 
-  pacstrap /mnt base linux-zen linux-firmware wget git neovim 
+  pacstrap /mnt base linux-zen linux-firmware wget git neovim python-pynvim tmux
 
 fi
 
@@ -59,4 +59,4 @@ genfstab -L /mnt >> /mnt/etc/fstab
 echo "Copying files and chrooting into the new system..."
 mkdir "/mnt/dotfiles"
 cp -r "../" "/mnt/dotfiles/"
-arch-chroot /mnt "/mnt/dotfiles/setup-arch/chroot-install" 
+arch-chroot /mnt "/dotfiles/setup-arch/chroot-install" 

@@ -84,7 +84,7 @@ echo " "
 echo "blacklist pcspkr" > "/etc/modprobe.d/nobeep.conf"
 echo "Blacklisted annoying beep sound."
 
-cp "./utils/configs/99-sysctl.conf" > "/etc/sysctl.d/"
+cp "./utils/configs/99-sysctl.conf" "/etc/sysctl.d/"
 echo "Added sysctl config file."
 
 echo "permit persist :wheel" > /etc/doas.conf

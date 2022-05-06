@@ -8,9 +8,10 @@
 [[ $- != *i* ]] && return
 
 #HISTORY
-HISTIGNORE="exit:ls:gt:goto:cd:reset:clear:pwd:history:poweroff:reboot:cmus:htop:tmux:foot"
-HISTCONTROL="ignoreboth:erasedups"
-HISTSIZE=1000
+export HISTIGNORE="exit:ls:gt:goto:cd:reset:clear:pwd:history:poweroff:reboot:cmus:htop:tmux:foot"
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTSIZE=1000
+
 
 # ALIASES
 alias ..="cd .."
@@ -26,6 +27,10 @@ alias ..5="cd ../../../../.."
 alias 5..="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias 6..="cd ../../../../../.."
+
+alias poweroff="loginctl poweroff"
+alias reboot="loginctl reboot"
+alias dsway="dbus-launch --exit-with-session sway"
 
 alias ls="ls --color=always --almost-all --group-directories-first --human-readable --size  -lSX"
 alias gt="goto"
