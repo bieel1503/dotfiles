@@ -2,8 +2,10 @@
 smart_borders on
 hide_edge_borders both
 default_border pixel 1
+default_floating_border none
 
 for_window [app_id="mpv"] floating enable
+for_window [app_id="keepassxc"] floating enable
 
 ### Variables
 # Logo key. Use Mod1 for Alt.
@@ -91,10 +93,10 @@ input "type:touchpad" {
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    # bindsym $mod+Left focus left
+    # bindsym $mod+Down focus down
+    # bindsym $mod+Up focus up
+    # bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -217,3 +219,4 @@ bar {
 exec pipewire 
 exec pipewire-pulse 
 exec wireplumber
+exec_always $HOME/dotfiles/randombg
