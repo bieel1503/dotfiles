@@ -47,8 +47,13 @@ return require('packer').startup(function()
 
   use {
   'nvim-telescope/telescope.nvim',
-  requires = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}, { "nvim-telescope/telescope-project.nvim" } }
+  requires = { {"nvim-lua/plenary.nvim"}, 
+    { "nvim-telescope/telescope-fzf-native.nvim", run = "make"}, 
+    { "nvim-telescope/telescope-project.nvim" },
+    { "nvim-telescope/telescope-ui-select.nvim" }}
   }
+
+  use { "simrat39/rust-tools.nvim" }
 
     use {
     "nvim-treesitter/nvim-treesitter",

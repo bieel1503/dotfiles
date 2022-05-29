@@ -44,7 +44,7 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'rust_analyzer' }
+local servers = { 'pyright', 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -69,3 +69,12 @@ require('lspconfig')["angularls"].setup{
     new_config.cmd = cmd
   end,
 }
+
+--and enable rust-tools
+require("rust-tools").setup({
+  tools = {
+    hover_actions = {
+      auto_focus = true
+    }
+  }
+})
