@@ -56,7 +56,15 @@ echo " "
 echo "Generating fstab file..."
 genfstab -L /mnt >> /mnt/etc/fstab
 
-echo "Copying files and chrooting into the new system..."
-mkdir "/mnt/dotfiles"
-cp -r "../" "/mnt/dotfiles/"
-arch-chroot /mnt "/dotfiles/setup-arch/chroot-install" 
+echo " "
+echo "Copy files and chroot into the new system?"
+ask "yes/no" "yes"
+if [ "$REPLY" == "yes" ]; then
+
+  echo "Copying files and chrooting into the new system..."
+  mkdir "/mnt/dotfiles"
+  cp -r "../" "/mnt/dotfiles/"
+  arch-chroot /mnt "/dotfiles/setup-arch/chroot-install" 
+
+fi
+

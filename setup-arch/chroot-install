@@ -91,7 +91,11 @@ echo "permit persist :wheel" > /etc/doas.conf
 echo "Created 'doas.conf' file."
 
 ln -sv /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf /etc/fonts/conf.d/
+cp ./utils/configs/pacman-cache-cleanup.hook /usr/share/libalpm/hooks/
+echo "Enabled nerd-fonts symbols and pacman cleanup hook."
+
 
 mv -f "./utils/configs/iptables.rules" "/etc/iptables/"
 systemctl enable iptables
-echo "Moved iptables rules file and enabled iptables service."
+systemctl enable seatd
+echo "Moved iptables rules file and enabled iptables and seatd services."
