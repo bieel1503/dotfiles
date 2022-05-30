@@ -97,5 +97,4 @@ echo "Enabled nerd-fonts symbols and pacman cleanup hook."
 
 mv -f "./utils/configs/iptables.rules" "/etc/iptables/"
 systemctl enable iptables
-systemctl enable seatd
-echo "Moved iptables rules file and enabled iptables and seatd services."
+echo "Moved iptables rules file and enabled iptables service."
