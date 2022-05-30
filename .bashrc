@@ -28,9 +28,7 @@ alias 5..="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias 6..="cd ../../../../../.."
 
-alias poweroff="loginctl poweroff"
-alias reboot="loginctl reboot"
-alias dsway="dbus-launch --exit-with-session sway"
+alias sway="dbus-launch --exit-with-session sway"
 
 alias ls="ls --color=always --almost-all --group-directories-first --human-readable --size  -lSX"
 alias gt="goto"
