@@ -76,5 +76,9 @@ require("rust-tools").setup({
     hover_actions = {
       auto_focus = true
     }
+  },
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities
   }
 })
