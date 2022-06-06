@@ -1,4 +1,5 @@
 --REMEMBER THAT YOU NEED TO DOWNLOAD VIA 'NPM' SOME LSP! ESPECIALLY ANGULAR, YOU NEED TO INSTALL BOTH GLOBALLY AND LOCAL PROJECT!
+--FOR ANGULAR: @angular/cli & language-server & typescript & typescript-language-server.
 --TELESCOPE REQUIRES & others "pacman -s ripgrep fd prettier"!
 
 require("user.options")
