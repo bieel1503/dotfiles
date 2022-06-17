@@ -34,9 +34,12 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 --vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
+vim.api.nvim_set_var('netrw_menu', 0)
+vim.api.nvim_set_var('netrw_banner', 0)
+vim.api.nvim_set_var('gruvbox_contrast_dark', 'hard')
+
 vim.cmd [[
 "	colorscheme zellner
-    let g:gruvbox_contrast_dark = 'hard'
     autocmd vimenter * ++nested colorscheme gruvbox
 ]]
 
