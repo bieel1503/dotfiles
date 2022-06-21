@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 #COLOR="\[\e[38;5;69m\]"
 
@@ -45,7 +43,7 @@ PS1='\[\e[1m\]\[\e[38;5;30m\]\W $(__git_ps1 "\[\e[38;5;69m\]git:(\[\e[38;5;124m\
 
 # FUNCTIONS
 goto() {
-  goto="$(sk -e -c 'fd --base-directory=$HOME -t d')"
+  goto="$(sk -e -c 'fd --base-directory=$HOME --type directory --hidden')"
   if [[ ! -z "$goto" ]]; then
     cd "$HOME/$goto"
   fi

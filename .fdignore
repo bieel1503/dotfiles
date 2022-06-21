@@ -1,0 +1,8 @@
+.mozilla
+.git 
+.cache
+.local
+.npm
+.pki
+.cargo
+.config/chromium
