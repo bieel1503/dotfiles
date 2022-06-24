@@ -48,3 +48,22 @@ goto() {
     cd "$HOME/$goto"
   fi
 }
+
+set-volume() {
+  case "$1" in
+    "mute" | "unmute")
+      pactl set-sink-mute @DEFAULT_SINK@ toggle
+      pactl get-sink-mute @DEFAULT_SINK@
+    ;;
+    [0-9]*)
+      pactl set-sink-volume @DEFAULT_SINK@ "$1%"
+      pactl get-sink-volume @DEFAULT_SINK@
+    ;;
+    "get")
+      pactl get-sink-volume @DEFAULT_SINK@
+    ;;
+    *)
+      echo "set-volume <mute,unmute,get,volume>"
+    ;;
+  esac
+}

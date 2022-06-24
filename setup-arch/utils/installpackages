@@ -1,7 +1,7 @@
 #!/bin/bash
 packages=("intel-ucode")
 packages+=("efibootmgr") #For EFISTUB
-packages+=("pavucontrol" "pamixer") #For audio control
+packages+=("pavucontrol") #For audio control
 packages+=("firefox") #Web browser
 packages+=("mpv") #MPV as multimidia player
 packages+=("nodejs" "npm" "rust") #Programming languages
