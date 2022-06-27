@@ -1,3 +1,8 @@
 [user]
 	name=bieel1503
 	email=gcainaramos@gmail.com
+
+[color]
+  diff=always
+  status=always
+  grep=always

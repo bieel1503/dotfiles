@@ -33,21 +33,21 @@ vim.opt.wrap = false                            -- display lines as one long lin
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 --vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+vim.opt.shortmess:append "c"
 
 vim.api.nvim_set_var('netrw_menu', 0)
 vim.api.nvim_set_var('netrw_banner', 0)
 vim.api.nvim_set_var('gruvbox_contrast_dark', 'hard')
 
 vim.cmd [[
-"	colorscheme zellner
+"set transparent background
+    augroup user_colors
+      autocmd!
+      autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+    augroup END
+
     autocmd vimenter * ++nested colorscheme gruvbox
 ]]
-
-vim.opt.shortmess:append "c"
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 --Set indentation for some langs and wipe netrw buffers
 vim.cmd [[
