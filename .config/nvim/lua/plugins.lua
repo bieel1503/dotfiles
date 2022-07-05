@@ -47,10 +47,12 @@ return require('packer').startup(function()
 
   use {
   'nvim-telescope/telescope.nvim',
-  requires = { {"nvim-lua/plenary.nvim"}, 
-    { "nvim-telescope/telescope-fzf-native.nvim", run = "make"}, 
-    { "nvim-telescope/telescope-project.nvim" },
-    { "nvim-telescope/telescope-ui-select.nvim" }}
+  requires = { 
+      { "nvim-lua/plenary.nvim" }, 
+      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, 
+      { "nvim-telescope/telescope-project.nvim" },
+      { "nvim-telescope/telescope-ui-select.nvim" }
+   }
   }
 
   use { "simrat39/rust-tools.nvim" }
@@ -76,6 +78,8 @@ return require('packer').startup(function()
         require('Comment').setup()
     end
   }
+
+  use { "TimUntersberger/neogit", requires = "sindrets/diffview.nvim"}
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
