@@ -12,6 +12,14 @@ export HISTSIZE=1000
 
 
 # ALIASES
+
+source /etc/os-release
+
+if [[ $ID != "arch" ]]; then
+ alias poweroff="loginctl poweroff" 
+ alias reboot="loginctl reboot" 
+fi
+
 alias ..="cd .."
 alias ..1="cd .."
 alias 1..="cd .."
@@ -25,7 +33,6 @@ alias ..5="cd ../../../../.."
 alias 5..="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias 6..="cd ../../../../../.."
-
 alias less="less -Ri"
 alias sway="dbus-launch --exit-with-session sway"
 alias ls="ls --color=always --almost-all --group-directories-first --human-readable --size  -lSX"
