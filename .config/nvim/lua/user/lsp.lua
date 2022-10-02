@@ -24,15 +24,17 @@ local function lsp_keymaps(bufnr)
 end
 
 local function default_formatter(client)
-        vim.cmd [[augroup Format]]
-        vim.cmd [[autocmd! * <buffer>]]
-        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 5000)]]
-        vim.cmd [[augroup END]]
-    if client.name == "null-ls" or not client.resolved_capabilities.document_formatting then
-            return
-        end 
-        client.resolved_capabilities.document_formatting = false
-          client.resolved_capabilities.document_range_formatting = false
+	vim.cmd [[augroup Format]]
+	vim.cmd [[autocmd! * <buffer>]]
+	vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 5000)]]
+	vim.cmd [[augroup END]]
+	if client.name == "null-ls" or not client.server_capabilities.documentFormattingProvider then
+		return
+	end 
+	--client.resolved_capabilities.document_formatting = false
+	--client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.documentFormattingProvider = false 
+	client.server_capabilities.documentRangeFormattingProvider = false 
 end
 
 local on_attach = function(client, bufnr)
