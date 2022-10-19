@@ -6,3 +6,7 @@
 .pki
 .cargo
 .config/chromium
+.gradle
+.m2
+.nvm
+.config/libreoffice

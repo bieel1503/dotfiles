@@ -20,13 +20,13 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format({async = false, timeout_ms = 3000})<CR>', opts)
 end
 
 local function default_formatter(client)
 	vim.cmd [[augroup Format]]
 	vim.cmd [[autocmd! * <buffer>]]
-	vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 5000)]]
+	vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({timeout_ms = 3000}) ]]
 	vim.cmd [[augroup END]]
 	if client.name == "null-ls" or not client.server_capabilities.documentFormattingProvider then
 		return
@@ -60,12 +60,17 @@ local project_library_path = "/home/bieel1503/.local/lib/node_modules/"
 local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
 
 require('lspconfig')["angularls"].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
+  on_attach = on_attach,
+  capabilities = capabilities,
   cmd = cmd,
   on_new_config = function(new_config,new_root_dir)
     new_config.cmd = cmd
   end,
+}
+
+require('lspconfig')["jdtls"].setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 --and enable rust-tools

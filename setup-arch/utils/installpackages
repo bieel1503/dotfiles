@@ -17,14 +17,14 @@ packages+=("dunst") #Desktop notifications
 packages+=("opendoas") #Instead of sudo
 packages+=("htop") #Process viewer
 packages+=("base-devel" "exfatprogs" "rsync" "fd" "ripgrep" "prettier" "stow" "skim")
-packages+=("pacman-contrib" "cryptsetup")
+packages+=("pacman-contrib" "cryptsetup" "polkit")
 
 echo "Which 'networkmanager'?"
 ask "iwd, networkmanager, dhcpcd" "iwd"
 
 case "$REPLY" in 
   "iwd")
-    packages+=("iwd")
+    packages+=("iwd" "systemd-resolved")
     ;;
   "networkmanager")
     packages+=("networkmanager")

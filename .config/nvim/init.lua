@@ -13,4 +13,3 @@ require("user.null-ls")
 require("user.evil_lualine")
 require("user.toggleterm")  
 require("user.neogit")  
-

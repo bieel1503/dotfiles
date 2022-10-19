@@ -5,7 +5,7 @@ vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the s
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
-vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
+vim.opt.hlsearch = false                         -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10                          -- pop up menu height
@@ -51,6 +51,7 @@ vim.cmd [[
 
 --Set indentation for some langs and wipe netrw buffers
 vim.cmd [[
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2
     autocmd FileType java,rust setlocal shiftwidth=4 tabstop=4
     autocmd FileType netrw setl bufhidden=wipe
 ]]
