@@ -1,10 +1,12 @@
 -- LSP Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
+
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>q', '<cmd>Telescope diagnostics<CR>', opts)
 
 
 local function lsp_keymaps(bufnr) 
@@ -24,10 +26,10 @@ local function lsp_keymaps(bufnr)
 end
 
 local function default_formatter(client)
-	vim.cmd [[augroup Format]]
-	vim.cmd [[autocmd! * <buffer>]]
-	vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({timeout_ms = 3000}) ]]
-	vim.cmd [[augroup END]]
+	-- vim.cmd [[augroup Format]]
+	-- vim.cmd [[autocmd! * <buffer>]]
+	-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({timeout_ms = 3000}) ]]
+	-- vim.cmd [[augroup END]]
 	if client.name == "null-ls" or not client.server_capabilities.documentFormattingProvider then
 		return
 	end 
