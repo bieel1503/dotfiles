@@ -214,7 +214,7 @@ bar {
     }
 }
 
-#exec pipewire 
-#exec pipewire-pulse
-#exec wireplumber
+exec pipewire 
+exec pipewire-pulse
+exec wireplumber
 exec_always $HOME/dotfiles/randombg
