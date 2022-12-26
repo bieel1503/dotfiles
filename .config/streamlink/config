@@ -1,6 +1,6 @@
 player="mpv"
 player-no-close
-title={title}
+title="{title} - {category}"
 default-stream=best
 twitch-disable-hosting
 twitch-disable-ads
