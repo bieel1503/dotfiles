@@ -40,7 +40,7 @@ ask "sway, dwm, plasma, none" "sway"
 
 case "$REPLY" in
   "sway")
-    packages+=("sway" "swaylock" "swaybg" "foot" "bemenu-wayland" "pipewire" "pipewire-pulse" "wireplumber" "qt5-wayland")
+    packages+=("sway" "swaylock" "swayidle" "swaybg" "foot" "bemenu-wayland" "pipewire" "pipewire-pulse" "wireplumber" "qt5-wayland")
 
     echo "Install Xwayland and other Xorg components?"
     ask "yes/no " "yes"
