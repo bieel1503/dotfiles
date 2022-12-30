@@ -32,7 +32,12 @@ packer.init {
 return require('packer').startup(function()
 
   use 'wbthomason/packer.nvim'
-  use 'morhetz/gruvbox'
+
+  --colorschemes
+  use "ellisonleao/gruvbox.nvim"
+  use "kyazdani42/blue-moon"
+  use "sainnhe/sonokai"
+  use "folke/tokyonight.nvim"
 
     -- cmp plugins
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -83,7 +88,9 @@ return require('packer').startup(function()
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  
+
+  use 'mfussenegger/nvim-jdtls'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

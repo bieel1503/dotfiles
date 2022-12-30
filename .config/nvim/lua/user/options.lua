@@ -39,6 +39,23 @@ vim.api.nvim_set_var('netrw_menu', 0)
 vim.api.nvim_set_var('netrw_banner', 0)
 vim.api.nvim_set_var('gruvbox_contrast_dark', 'hard')
 
+vim.api.nvim_set_var('sonokai_style', 'default')
+vim.api.nvim_set_var('sonokai_transparent_background', 1)
+vim.api.nvim_set_var('sonokai_better_performance', 1)
+
+require("tokyonight").setup({
+  transparent = true,
+  styles = {
+    variables = {fg = "red"}
+  }
+})
+
+require("gruvbox").setup({
+  strikethrough = false,
+  italic = false,
+  transparent_mode = true,
+})
+
 vim.cmd [[
 "set transparent background
     augroup user_colors
@@ -46,7 +63,8 @@ vim.cmd [[
       autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
     augroup END
 
-    autocmd vimenter * ++nested colorscheme gruvbox
+    " autocmd vimenter * ++nested colorscheme gruvbox
+  colorscheme sonokai
 ]]
 
 --Set indentation for some langs and wipe netrw buffers
