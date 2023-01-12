@@ -88,3 +88,10 @@ require("rust-tools").setup({
     capabilities = capabilities
   }
 })
+
+--enable fidget
+require("fidget").setup({
+  window = {
+    blend = 0
+  }
+})

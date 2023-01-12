@@ -33,6 +33,8 @@ return require('packer').startup(function()
 
   use 'wbthomason/packer.nvim'
 
+  use 'j-hui/fidget.nvim'
+
   --colorschemes
   use "ellisonleao/gruvbox.nvim"
   use "kyazdani42/blue-moon"
@@ -66,7 +68,7 @@ return require('packer').startup(function()
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "windwp/nvim-autopairs"
+  -- use "windwp/nvim-autopairs"
   use "jose-elias-alvarez/null-ls.nvim"
 
   use {
