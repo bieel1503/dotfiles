@@ -7,7 +7,7 @@ packages+=("mpv") #MPV as multimidia player
 packages+=("nodejs-lts-hydrogen" "npm" "rust") #Programming languages
 packages+=("keepassxc") #Password manager
 packages+=("streamlink") #For watching lives
-packages+=("noto-fonts" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "ttf-nerd-fonts-symbols-1000-em-mono" "gnu-free-fonts" "ttf-liberation") #Fonts
+packages+=("ttf-noto-nerd" "noto-fonts-emoji" "adobe-source-han-sans-otc-fonts" "gnu-free-fonts") #Fonts
 packages+=("imv") #Image viewer
 packages+=("p7zip") #For handling archives
 packages+=("yt-dlp") #For downloading youtube videos and other sites
@@ -95,7 +95,8 @@ case "$REPLY" in
     ;;   
 esac
 
-pacman -S --ignore="sudo" --needed ${packages[*]}
+pacman -S --needed ${packages[*]}
+pacman -Rnsdd sudo
 
 
 
