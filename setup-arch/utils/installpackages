@@ -24,7 +24,7 @@ ask "iwd, networkmanager, dhcpcd" "iwd"
 
 case "$REPLY" in 
   "iwd")
-    packages+=("iwd" "systemd-resolved")
+    packages+=("iwd")
     ;;
   "networkmanager")
     packages+=("networkmanager")
