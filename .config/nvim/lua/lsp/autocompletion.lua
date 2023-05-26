@@ -1,13 +1,3 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
-
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
-
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -43,7 +33,9 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
+
+local luasnip = require("luasnip")
+local cmp = require("cmp")
 
 cmp.setup {
   snippet = {
@@ -111,11 +103,13 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "luasnip" },
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
-    { name = "buffer" },
+    { name = "luasnip" },
+    { name = "luasnip_choice" },
     { name = "path" },
+    { name = "nvim_lsp_signature_help" },
+    { name = "buffer" },
+    { name = "omni" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -131,4 +125,3 @@ cmp.setup {
     native_menu = false,
   },
 }
-

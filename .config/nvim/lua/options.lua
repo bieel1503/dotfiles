@@ -45,6 +45,7 @@ vim.cmd [[
     autocmd FileType netrw setl bufhidden=wipe
 ]]
 
+--KEYMAPS
 --Disable arrow keys and force me to use 'hjkl'.
 vim.api.nvim_set_keymap('n', '<Up>', '', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', '<Down>', '', { noremap=true, silent=true })
@@ -57,3 +58,5 @@ vim.api.nvim_set_keymap('n', '<C-o>', '<C-o>zz', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>zz', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap=true, silent=true })
+
+vim.keymap.set('n', '<leader>fe', '<cmd>:Explore<cr>', {})

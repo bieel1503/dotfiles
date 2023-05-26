@@ -2,15 +2,17 @@
 --FOR ANGULAR: @angular/cli & language-server & typescript & typescript-language-server.
 --TELESCOPE REQUIRES & others "pacman -s ripgrep fd prettier"!
 
-require("user.options")
-require("plugins")
-require("user.completion")
-require("user.lsp")
-require("user.telescope")
-require("user.treesitter")
--- require("user.autopairs")
-require("user.null-ls")
-require("user.evil_lualine")
-require("user.toggleterm")  
-require("user.neogit")  
-require("user.colorscheme")
+require("options")
+
+local plugins = require("plugins")
+if not plugins.first_init() then
+  require("colorscheme")
+  require("evil_lualine")
+  require("treesitter")
+  require("lsp/lsp")
+  require("telescope-nvim")
+  require("fidget-nvim")
+  require("toggleterm-nvim")
+else
+  print("first init: wait for lazy to download stuff, then re-open nvim")
+end

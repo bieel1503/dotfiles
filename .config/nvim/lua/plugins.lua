@@ -1,101 +1,63 @@
--- Automatically install packer
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system {
+--LAZY BOOTSTRAP
+local plugins = {}
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+  LAZY_BOOTSTRAP = vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   return
 end
 
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "single" })
-    end,
-  },
-}
-
-return require('packer').startup(function()
-
-  use 'wbthomason/packer.nvim'
-
-  use 'j-hui/fidget.nvim'
-
+lazy.setup({
   --colorschemes
-  use "ellisonleao/gruvbox.nvim"
-  use "kyazdani42/blue-moon"
-  use "sainnhe/sonokai"
-  use "folke/tokyonight.nvim"
+  "sainnhe/sonokai",
+  --statusline
+  {"nvim-lualine/lualine.nvim", lazy = true},
+  {"nvim-tree/nvim-web-devicons", lazy = true},
+  --treesitter
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = true},
+  --LSP stuff
+  {"neovim/nvim-lspconfig", lazy = true},
+  {"hrsh7th/nvim-cmp", lazy = true},
+  {"L3MON4D3/LuaSnip", version = "1.2.1", lazy = true},
+  {"rafamadriz/friendly-snippets", lazy = false},
+  {"saadparwaiz1/cmp_luasnip", lazy = false},
+  {"L3MON4D3/cmp-luasnip-choice", lazy = false},
+  {"hrsh7th/cmp-buffer", lazy = false},
+  {"hrsh7th/cmp-omni", lazy = false},
+  {"hrsh7th/cmp-nvim-lsp", lazy = false},
+  {"hrsh7th/cmp-nvim-lsp-signature-help", lazy = false},
+  {"hrsh7th/cmp-path", lazy = false},
+  {"jose-elias-alvarez/null-ls.nvim", lazy = true},
+  {"j-hui/fidget.nvim", lazy = true},
+  {"simrat39/rust-tools.nvim", lazy = true},
+  --Telescope
+  {"nvim-telescope/telescope.nvim", version = "0.1.1", lazy = true},
+  {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
+  {"nvim-telescope/telescope-ui-select.nvim", lazy = true},
+  {"nvim-lua/plenary.nvim", lazy = true},
+  --
+  {"akinsho/toggleterm.nvim", lazy = true},
+  {"mfussenegger/nvim-jdtls", lazy = true},
+})
 
-    -- cmp plugins
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+--if LAZY_BOOTSTRAP then
+--  lazy.install()
+--end
 
+function plugins.first_init() 
+  return LAZY_BOOTSTRAP
+end
 
-  use {
-  'nvim-telescope/telescope.nvim',
-  requires = { 
-      { "nvim-lua/plenary.nvim" }, 
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, 
-      { "nvim-telescope/telescope-project.nvim" },
-      { "nvim-telescope/telescope-ui-select.nvim" }
-   }
-  }
-
-  use { "simrat39/rust-tools.nvim" }
-
-    use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  -- use "windwp/nvim-autopairs"
-  use "jose-elias-alvarez/null-ls.nvim"
-
-  use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-  use {"akinsho/toggleterm.nvim"}
-
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-  }
-
-  use { "TimUntersberger/neogit", requires = "sindrets/diffview.nvim"}
-
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-  use 'mfussenegger/nvim-jdtls'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+return plugins
