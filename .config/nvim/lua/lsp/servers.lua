@@ -29,7 +29,7 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
-local servers = { "cssls", "pyright", "tsserver", "jdtls" }
+local servers = { "cssls", "pyright", "tsserver" }
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
