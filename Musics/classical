@@ -1,0 +1,2 @@
+#!/bin/bash
+mpv --shuffle --ytdl-format=bestaudio "https://www.youtube.com/playlist?list=RDCLAK5uy_kk9Tes94U0LHlttI2bfPQ1Ifm_pdVlBXQ"
