@@ -13,6 +13,7 @@ if not plugins.first_init() then
   require("telescope-nvim")
   require("fidget-nvim")
   require("toggleterm-nvim")
+  require("treesitter-context-nvim")
 else
   print("first init: wait for lazy to download stuff, then re-open nvim")
 end
