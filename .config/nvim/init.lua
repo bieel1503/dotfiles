@@ -14,6 +14,7 @@ if not plugins.first_init() then
   require("fidget-nvim")
   require("toggleterm-nvim")
   require("treesitter-context-nvim")
+  require("Comment").setup()
 else
   print("first init: wait for lazy to download stuff, then re-open nvim")
 end

@@ -50,7 +50,8 @@ lazy.setup({
   --
   {"akinsho/toggleterm.nvim", lazy = true},
   {"mfussenegger/nvim-jdtls", lazy = true},
-  {"nvim-treesitter/nvim-treesitter-context", lazy = true}
+  {"nvim-treesitter/nvim-treesitter-context", lazy = true},
+  {"numToStr/Comment.nvim", lazy = true}
 })
 
 --if LAZY_BOOTSTRAP then
