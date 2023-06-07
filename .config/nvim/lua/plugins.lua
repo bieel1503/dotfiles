@@ -27,6 +27,7 @@ lazy.setup({
   {"nvim-tree/nvim-web-devicons", lazy = true},
   --treesitter
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = true},
+  {"nvim-treesitter/nvim-treesitter-context", lazy = true},
   --LSP stuff
   {"neovim/nvim-lspconfig", lazy = true},
   {"hrsh7th/nvim-cmp", lazy = true},
@@ -42,6 +43,8 @@ lazy.setup({
   {"jose-elias-alvarez/null-ls.nvim", lazy = true},
   {"j-hui/fidget.nvim", lazy = true},
   {"simrat39/rust-tools.nvim", lazy = true},
+  {"numToStr/Comment.nvim", lazy = true},
+  {"mfussenegger/nvim-jdtls", lazy = true},
   --Telescope
   {"nvim-telescope/telescope.nvim", version = "0.1.1", lazy = true},
   {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
@@ -49,9 +52,7 @@ lazy.setup({
   {"nvim-lua/plenary.nvim", lazy = true},
   --
   {"akinsho/toggleterm.nvim", lazy = true},
-  {"mfussenegger/nvim-jdtls", lazy = true},
-  {"nvim-treesitter/nvim-treesitter-context", lazy = true},
-  {"numToStr/Comment.nvim", lazy = true}
+  {"TimUntersberger/neogit", lazy = true},
 })
 
 --if LAZY_BOOTSTRAP then
