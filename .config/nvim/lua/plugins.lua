@@ -46,13 +46,14 @@ lazy.setup({
   {"numToStr/Comment.nvim", lazy = true},
   {"mfussenegger/nvim-jdtls", lazy = true},
   --Telescope
-  {"nvim-telescope/telescope.nvim", version = "0.1.1", lazy = true},
+  {"nvim-telescope/telescope.nvim", version = "0.1.1", lazy = false},
   {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
   {"nvim-telescope/telescope-ui-select.nvim", lazy = true},
   {"nvim-lua/plenary.nvim", lazy = true},
   --
   {"akinsho/toggleterm.nvim", lazy = true},
   {"TimUntersberger/neogit", lazy = true},
+  {"sindrets/diffview.nvim", lazy = true},
 })
 
 --if LAZY_BOOTSTRAP then
