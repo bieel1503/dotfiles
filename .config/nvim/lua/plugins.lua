@@ -41,7 +41,7 @@ lazy.setup({
   {"hrsh7th/cmp-nvim-lsp-signature-help", lazy = false},
   {"hrsh7th/cmp-path", lazy = false},
   {"jose-elias-alvarez/null-ls.nvim", lazy = true},
-  {"j-hui/fidget.nvim", lazy = true},
+  {"j-hui/fidget.nvim", lazy = true, tag = "legacy"},
   {"simrat39/rust-tools.nvim", lazy = true},
   {"numToStr/Comment.nvim", lazy = true},
   {"mfussenegger/nvim-jdtls", lazy = true},
@@ -52,7 +52,7 @@ lazy.setup({
   {"nvim-lua/plenary.nvim", lazy = true},
   --
   {"akinsho/toggleterm.nvim", lazy = true},
-  {"TimUntersberger/neogit", lazy = true},
+  {"NeogitOrg/neogit", lazy = true},
   {"sindrets/diffview.nvim", lazy = true},
 })
 
