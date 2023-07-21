@@ -74,3 +74,11 @@ set-volume() {
     ;;
   esac
 }
+
+tlist() {
+  tput sc; while true; do transmission-remote -l; sleep 1; tput ed && tput rc; done;
+}
+
+tadd() {
+  transmission-remote -a "$1"
+}
