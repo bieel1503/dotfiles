@@ -46,7 +46,7 @@ case "$REPLY" in
     ask "yes/no " "yes"
 
     if [ "$REPLY" == "yes" ]; then
-      packages+=("xwayland" "xorg-server" "xorg-setxkbmap" "xorg-xset" "xorg-xrandr" "xorg-xinit" "xorg-xrdb" "xorg-xprop" "xorg-xinput")
+      packages+=("xorg-xwayland" "xorg-server" "xorg-setxkbmap" "xorg-xset" "xorg-xrandr" "xorg-xinit" "xorg-xrdb" "xorg-xprop" "xorg-xinput")
     fi
 
     ;;
