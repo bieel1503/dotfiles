@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "clock", "tray"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "clock", "custom/uptime", "tray"],
     "tray": {
         // "icon-size": 21,
         "spacing": 10
@@ -16,6 +16,10 @@
       "interval": 1,
       "format": "{:%d/%m/%Y %H:%M:%OS}",
       "tooltip-format": "{:%B, %A}"
+    },
+    "custom/uptime": {
+      "exec": "uptime -p",
+      "interval": 60
     },
     "cpu": {
         "format": "{usage}% ",

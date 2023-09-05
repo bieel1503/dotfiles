@@ -40,6 +40,7 @@ alias gt="goto"
 alias update="doas pacman -Syu"
 alias updateaur="paru -Syua"
 alias cleanup="pacman -Qtdq | doas pacman -Rns -"
+alias sudo="doas"
 
 #SOURCES
 source /usr/share/git/git-prompt.sh
