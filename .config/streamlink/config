@@ -1,4 +1,4 @@
-player="mpv"
+player=mpv
 player-no-close
 title="{title} - {category}"
 default-stream=best
