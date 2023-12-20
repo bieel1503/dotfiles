@@ -7,6 +7,7 @@ require("options")
 local plugins = require("plugins")
 if not plugins.first_init() then
   require("colorscheme")
+  require("conform-nvim")
   require("evil_lualine")
   require("treesitter")
   require("lsp/lsp")
