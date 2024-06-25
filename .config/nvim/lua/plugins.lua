@@ -31,7 +31,7 @@ lazy.setup({
   --LSP stuff
   {"neovim/nvim-lspconfig", lazy = true},
   {"hrsh7th/nvim-cmp", lazy = true},
-  {"L3MON4D3/LuaSnip", version = "2.1.1", lazy = true},
+  {"L3MON4D3/LuaSnip", version = "2.3.0", lazy = true},
   {"rafamadriz/friendly-snippets", lazy = false},
   {"saadparwaiz1/cmp_luasnip", lazy = false},
   {"L3MON4D3/cmp-luasnip-choice", lazy = false},
@@ -46,7 +46,7 @@ lazy.setup({
   {"mfussenegger/nvim-jdtls", lazy = true},
   {"stevearc/conform.nvim"},
   --Telescope
-  {"nvim-telescope/telescope.nvim", version = "0.1.5", lazy = false},
+  {"nvim-telescope/telescope.nvim", version = "0.1.8", lazy = false},
   {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
   {"nvim-telescope/telescope-ui-select.nvim", lazy = true},
   {"nvim-lua/plenary.nvim", lazy = true},
