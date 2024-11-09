@@ -15,6 +15,7 @@
     "clock": {
       "interval": 1,
       "format": "{:%d/%m/%Y %H:%M:%OS}",
+      "timezone": "America/Sao_Paulo",
       "tooltip-format": "{:%B, %A}"
     },
     "custom/uptime": {
