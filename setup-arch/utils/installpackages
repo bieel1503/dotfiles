@@ -16,6 +16,7 @@ packages+=("lm_sensors") #Sensors command
 packages+=("dunst") #Desktop notifications
 packages+=("opendoas") #Instead of sudo
 packages+=("htop") #Process viewer
+packages+=("bash-completion")
 packages+=("base-devel" "exfatprogs" "rsync" "fd" "ripgrep" "prettier" "stow" "skim")
 packages+=("pacman-contrib" "cryptsetup" "polkit")
 
