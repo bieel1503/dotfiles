@@ -95,7 +95,10 @@ cp ./utils/configs/pacman-cache-cleanup.hook /usr/share/libalpm/hooks/
 echo "Enabled nerd-fonts symbols and pacman cleanup hook."
 
 
-mv -f "./utils/configs/iptables.rules" "/etc/iptables/"
+cp "./utils/configs/iptables.rules" "/etc/iptables/"
+cp "./utils/configs/ip6tables.rules" "/etc/iptables/"
+
 systemctl enable iptables
 systemctl enable ip6tables
-echo "Moved iptables rules file and enabled iptables service."
+
+echo "Copied iptables rules files and enabled iptables service."
