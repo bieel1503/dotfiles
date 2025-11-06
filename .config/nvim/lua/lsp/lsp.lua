@@ -1,6 +1,5 @@
 require("lsp/autocompletion")
 require("lsp/servers")
-require("lsp/rust-tools")
 
 function conform_format()
   require("conform").format { async = true, lsp_fallback = true }

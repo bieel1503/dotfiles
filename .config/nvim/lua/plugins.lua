@@ -41,7 +41,6 @@ lazy.setup({
   {"hrsh7th/cmp-nvim-lsp-signature-help", lazy = false},
   {"hrsh7th/cmp-path", lazy = false},
   {"j-hui/fidget.nvim", lazy = false},
-  {"simrat39/rust-tools.nvim", lazy = true},
   {"numToStr/Comment.nvim", lazy = true},
   {"mfussenegger/nvim-jdtls", lazy = true},
   {"stevearc/conform.nvim"},
