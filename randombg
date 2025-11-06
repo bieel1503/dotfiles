@@ -1,6 +1,0 @@
-#!/bin/bash
-WALLPAPERS_PATH="$HOME/dotfiles/wallpapers/"
-WALLPAPERS=($(ls "$WALLPAPERS_PATH"))
-RANDOMNUM=$(($RANDOM % ${#WALLPAPERS[@]}))
-
-exec swaymsg "output * bg $WALLPAPERS_PATH${WALLPAPERS[$RANDOMNUM]} fill"

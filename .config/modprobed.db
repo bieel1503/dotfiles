@@ -42,6 +42,9 @@ i8042
 inet_diag
 intel_rapl_common
 intel_rapl_msr
+ip6table_filter
+ip6_tables
+ip6t_REJECT
 iptable_filter
 ip_tables
 ipt_REJECT
@@ -55,6 +58,7 @@ llc
 loop
 mac_hid
 mbcache
+mdio_bus
 mdio_devres
 mfd_core
 mousedev
@@ -64,8 +68,10 @@ nf_defrag_ipv4
 nf_defrag_ipv6
 nfnetlink
 nf_reject_ipv4
+nf_reject_ipv6
 nls_ascii
 nls_cp437
+ntsync
 nvme
 nvme_auth
 nvme_core
@@ -83,9 +89,12 @@ sha256_ssse3
 sha512_ssse3
 snd
 snd_hda_codec
+snd_hda_codec_alc662
+snd_hda_codec_atihdmi
 snd_hda_codec_generic
 snd_hda_codec_hdmi
 snd_hda_codec_realtek
+snd_hda_codec_realtek_lib
 snd_hda_core
 snd_hda_intel
 snd_hda_scodec_component
