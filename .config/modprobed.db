@@ -71,6 +71,7 @@ nf_reject_ipv4
 nf_reject_ipv6
 nls_ascii
 nls_cp437
+ntfs3
 ntsync
 nvme
 nvme_auth
