@@ -14,3 +14,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export DXVK_CONFIG_FILE=$XDG_CONFIG_HOME/dxvk/dxvk.conf
+export MESA_SHADER_CACHE_MAX_SIZE="2G"
+export GTK_THEME=Adwaita:dark
+export QT_QPA_PLATFORMTHEME=qt6ct
